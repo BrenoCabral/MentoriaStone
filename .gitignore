@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/MentoriaNet/Classes/obj
+/MentoriaNet/Classes/bin/Debug/net5.0
+/MentoriaNet/.vs/MentoriaNet
+/MentoriaNet/MentoriaNet/obj
+/MentoriaNet/MentoriaNet/bin/Debug/net6.0
