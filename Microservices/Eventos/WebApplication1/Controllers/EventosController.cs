@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.DbContexts;
+using WebApplication1.Entidades;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,11 +11,16 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class EventosController : ControllerBase
     {
+        public EventosDbContext _dbContext { get; set; }
+        public EventosController(EventosDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         // GET: api/<EventosController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Evento> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _dbContext.Eventos.ToList();
         }
 
         // GET api/<EventosController>/5
