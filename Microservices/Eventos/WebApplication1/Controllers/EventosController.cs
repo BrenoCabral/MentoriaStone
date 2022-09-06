@@ -25,15 +25,18 @@ namespace WebApplication1.Controllers
 
         // GET api/<EventosController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Evento Get(int id)
         {
-            return "value";
+            return _dbContext.Eventos.Where(evento => evento.Id == id)?.FirstOrDefault();
         }
 
         // POST api/<EventosController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] int value)
         {
+            var evento = new Evento() { Id = value };
+            _dbContext.Eventos.Add(evento);
+            _dbContext.SaveChangesAsync();
         }
 
         // PUT api/<EventosController>/5
