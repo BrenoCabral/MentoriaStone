@@ -17,9 +17,9 @@ namespace CarrinhoDeCompra.Controllers
         }
         // GET: api/<CarrinhoDeComprasController>
         [HttpGet("{id}")]
-        public CarrinhoDeCompras BuscarCarrinho(int id)
+        public async Task<CarrinhoDeCompras> BuscarCarrinho(int id)
         {
-            var carrinho = _carrinhoDeCompraService.BuscarCarrinho(id);
+            var carrinho = await _carrinhoDeCompraService.BuscarCarrinho(id);
             return carrinho;
         }
 

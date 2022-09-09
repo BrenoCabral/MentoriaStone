@@ -5,10 +5,10 @@ namespace CarrinhoDeCompra.Services
 {
     public class CarrinhoDeCompraService : ICarrinhoDeCompraService
     {
-        private  CarrinhoDbContext _dbContext { get; set; }
-        public CarrinhoDeCompraService()
+        private CarrinhoDbContext _dbContext { get; set; }
+        public CarrinhoDeCompraService(CarrinhoDbContext dbContext)
         {
-
+            _dbContext = dbContext;
         }
         public async Task<CarrinhoDeCompras> BuscarCarrinho(int id)
         {
